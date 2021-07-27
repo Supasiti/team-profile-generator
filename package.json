@@ -1,0 +1,28 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "A command line app that generates a webpage that displays employees in my team's basic info",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Supasiti/team-profile-generator.git"
+  },
+  "author": "Thara Supasiti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Supasiti/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/Supasiti/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
