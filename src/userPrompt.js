@@ -1,55 +1,58 @@
 const inquirer = require('inquirer');
 const { generateQuestions } = require('./questions');
 
-// ask for role 
+//  question for the role
+const questionForRole = [
+  {
+    type: 'list',
+    name: 'role',
+    message: "which role would you like to add?",
+    choices: ['engineer', 'intern']
+  }
+];
+
+//  prompt for role to choose
 const askForRole = () => {
-  inquirer
-    .prompt([
-      {
-        type: 'list',
-        name: 'role',
-        message: "which role would you like to add?",
-        choices: ['engineer', 'intern']
-      }
-    ])
-    .then( (answer) => askForRoleInfo(answer.role));
-}
+  return new Promise( (resolve, reject) => {
+    inquirer
+      .prompt(questionForRole)
+      .then(answer => answer.role)
+      .then(resolve)
+  });
+};
 
-// create a function to handle with the answer from user prompt
-const handleRoleInfoAnswerFactory = (handleAnswer, handleFinish) => {
-  return (answer, role) => {
-    handleAnswer(answer, role) // do something with answer
-
-    if (answer.addMore) {
-      askForRole();
+//  handle whether to continue adding more team member or finish
+const handleAddTeamMember = (answer) => {
+  return new Promise((resolve, reject) =>  {
+    if (answer.addMore) { // if the user want to add more team members
+      resolve();
     } else {
-      handleFinish() // do something when finish 
+      reject();
     };
-  };
+  });
 };
 
-//  ask for user info based on the role
-const askForRoleInfoFactory = (handleRoleInfoAnswer) => {
-    return (role) => {
-      const questions = generateQuestions(role);
-      inquirer
-        .prompt(questions)
-        .then((answer) => handleRoleInfoAnswer(answer, role))
-    };
+
+// prompt factory that will create a user prompt
+// usage :
+//   const prompt = promptFactory(handleAnswer, handleFinish)
+//   prompt('manager') 
+const promptFactory = (handleAnswer, handleFinish) => {
+  const askForRoleInfo = (role) => {
+    const questions = generateQuestions(role);
+    inquirer
+      .prompt(questions)
+      .then((answer) => {
+        handleAnswer(answer, role)
+        return answer;
+      })
+      .then(handleAddTeamMember)
+      .then(() => askForRole().then(askForRoleInfo), handleFinish)
   };
-
-// const handleRoleInfoAnswer = handleRoleInfoAnswerFactory( 
-//     (answer, role) => {
-//       console.log(role);
-//       console.log(answer);
-//   },
-//     () => console.log('Generating the web page!')
-//   );
-// const askForRoleInfo = askForRoleInfoFactory(handleRoleInfoAnswer);
-
-// askForRoleInfo('manager');
-
-module.exports = {
-  askForRoleInfoFactory, 
-  handleRoleInfoAnswerFactory
+  return askForRoleInfo;
 };
+
+
+
+
+module.exports = promptFactory
