@@ -21,7 +21,7 @@ describe('Employee', () =>{
     () =>{
       const name = 'thara';
       const id = '1';
-      const email = 'thara@company.com';
+      const email = 'thara';
       const expected = undefined;
 
       const mock = jest.spyOn(console, 'error');
@@ -31,7 +31,7 @@ describe('Employee', () =>{
       expect(employee.name).toEqual(expected); 
       expect(employee.id).toEqual(expected); 
       expect(employee.email).toEqual(expected); 
-      expect(mock).toHaveBeenLastCalledWith('id must be of type number');
+      expect(mock).toHaveBeenLastCalledWith('\nemail must be of type email');
     });
 
     it ('should log an error when data is missing', 

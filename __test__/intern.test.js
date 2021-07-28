@@ -35,7 +35,7 @@ describe('Intern', () => {
       expect(intern.id).toEqual(expected); 
       expect(intern.email).toEqual(expected); 
       expect(intern.school).toEqual(expected); 
-      expect(mock).toHaveBeenLastCalledWith('school must be of type string');
+      expect(mock).toHaveBeenLastCalledWith('\nschool must be of type string');
     });
 
     it ('should log an error when data is missing', 
