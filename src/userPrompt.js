@@ -53,6 +53,4 @@ const promptFactory = (handleAnswer, handleFinish) => {
 };
 
 
-
-
 module.exports = promptFactory
