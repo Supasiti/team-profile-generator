@@ -21,8 +21,8 @@ const validateEmail = (obj, name) => {
 // phone
 const validatePhone = (obj, name) => {
   if( validateDefault(obj, name, 'string')) {
-    const phrases = obj.split(' ');
-    if (phrases.some( (phrase) => isNaN(phrase))) {
+    const phrases = obj.trim().replace('+', '').split(' ');
+    if (phrases.some(isNaN)) {
       console.error(`${name} must be a phone number`);
       return false;
     }
@@ -31,12 +31,12 @@ const validatePhone = (obj, name) => {
   return false;
 }
 
-
+// final
 validateType = (obj, name, type) => {
   if (type === 'email') return validateEmail(obj, name);
   if (type === 'phone') return validatePhone(obj, name);
   return validateDefault(obj, name, type);
-}
+};
 
 module.exports = {
   validateType
