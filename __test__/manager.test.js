@@ -34,7 +34,7 @@ describe('Manager', () => {
       expect(manager.id).toEqual(expected); 
       expect(manager.email).toEqual(expected); 
       expect(manager.officeNumber).toEqual(expected); 
-      expect(mock).toHaveBeenLastCalledWith('\nofficeNumber must be a number');
+      expect(mock).toHaveBeenLastCalledWith('officeNumber must be a number');
     });
 
     it ('should log an error when data is missing', 

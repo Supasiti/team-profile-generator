@@ -35,7 +35,7 @@ describe('Engineer', () => {
       expect(engineer.id).toEqual(expected); 
       expect(engineer.email).toEqual(expected); 
       expect(engineer.github).toEqual(expected); 
-      expect(mock).toHaveBeenLastCalledWith('\ngithub must be of type string');
+      expect(mock).toHaveBeenLastCalledWith('github must be of type string');
     });
 
     it ('should log an error when data is missing', 

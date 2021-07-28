@@ -31,7 +31,7 @@ describe('Employee', () =>{
       expect(employee.name).toEqual(expected); 
       expect(employee.id).toEqual(expected); 
       expect(employee.email).toEqual(expected); 
-      expect(mock).toHaveBeenLastCalledWith('\nemail must be of type email');
+      expect(mock).toHaveBeenLastCalledWith('email must be of type email');
     });
 
     it ('should log an error when data is missing', 

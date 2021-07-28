@@ -10,7 +10,7 @@ describe('validateType', () => {
       
       const result = validateType(1, "hello", "string"); 
 
-      expect(mock).toBeCalledWith('\nhello must be of type string')
+      expect(mock).toBeCalledWith('hello must be of type string')
       expect(result).toEqual(false);
     });
 
@@ -29,7 +29,7 @@ describe('validateType', () => {
       
       const result = validateType("hello", "hello", "number"); 
 
-      expect(mock).toBeCalledWith('\nhello must be a number')
+      expect(mock).toBeCalledWith('hello must be a number')
       expect(result).toEqual(false);
     });
 
@@ -48,7 +48,7 @@ describe('validateType', () => {
       
       const result = validateType("hello", "hello", "email"); 
 
-      expect(mock).toBeCalledWith('\nhello must be of type email')
+      expect(mock).toBeCalledWith('hello must be of type email')
       expect(result).toEqual(false);
     });
 
@@ -68,7 +68,7 @@ describe('validateType', () => {
       
       const result = validateType("h 30 30", "hello", "phone"); 
 
-      expect(mock).toBeCalledWith('\nhello must be a phone number')
+      expect(mock).toBeCalledWith('hello must be a phone number')
       expect(result).toEqual(false);
     });
 

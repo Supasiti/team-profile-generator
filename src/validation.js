@@ -1,7 +1,7 @@
 // default
 const validateDefault = (obj, name, type) => {
   if (typeof obj !== type) {
-    console.error(`\n${name} must be of type ${type}`);
+    console.error(`${name} must be of type ${type}`);
     return false;
   }
   return true;
@@ -10,7 +10,7 @@ const validateDefault = (obj, name, type) => {
 // number 
 const validateNumber = (obj, name) => {
   if (isNaN(obj)) {
-    console.error(`\n${name} must be a number`);
+    console.error(`${name} must be a number`);
     return false;
   }
   return true;
@@ -21,7 +21,7 @@ const validateEmail = (obj, name) => {
   if( validateDefault(obj, name, 'string')) {
     // check if it has @ sign
     if (obj.split('').includes('@')) return true;
-    console.error(`\n${name} must be of type email`);
+    console.error(`${name} must be of type email`);
     return false;
   }
   return false;
@@ -32,7 +32,7 @@ const validatePhone = (obj, name) => {
   if( validateDefault(obj, name, 'string')) {
     const phrases = obj.trim().replace('+', '').split(' ');
     if (phrases.some(isNaN)) {
-      console.error(`\n${name} must be a phone number`);
+      console.error(`${name} must be a phone number`);
       return false;
     }
     return true;
