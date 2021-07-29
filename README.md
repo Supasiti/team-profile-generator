@@ -20,7 +20,7 @@ with questions for information about their team members. Once answered, a html f
 
 The end product should resemble the mock-up provided below:
 
-![team profile screenshot](./demo/screenshot.png)
+[![team profile screenshot](./demo/screenshot.png)](https://youtu.be/myQuzvY8_Qw)
 
 
 ## <h2 id="table-of-contents"> Table of Contents </h2>
@@ -56,7 +56,7 @@ and follow all the prompts. The output file will be located in `/dist/` folder o
 
     open /dist/index.html
 
-Still confused? Follow the walkthrough [here](...sdfsfs.f).
+Still confused? Follow a walkthrough [here](https://youtu.be/myQuzvY8_Qw).
 
 ## <h2 id="tests"> Tests </h2>
 [(Back to top)](#table-of-content)
