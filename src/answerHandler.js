@@ -6,21 +6,26 @@ const generateContent = require('./htmlGenerator');
  
 const teamMembers = [];
 
+// capitialise the first letter  
+const capitalise = (string) => {
+  return string[0].toUpperCase() + string.substr(1).toLowerCase();
+}
+
 const parseManager = (answer) => {
   const {name, id, email, officeNumber} = answer;
-  const manager = new Manager(name, id, email, officeNumber);
+  const manager = new Manager(capitalise(name), id, email, officeNumber);
   teamMembers.push(manager);
 }
 
 const parseEngineer = (answer) => {
   const {name, id, email, github} = answer;
-  const engineer = new Engineer(name, id, email, github);
+  const engineer = new Engineer(capitalise(name), id, email, github);
   teamMembers.push(engineer);
 }
 
 const parseIntern = (answer) => {
   const {name, id, email, school} = answer;
-  const intern = new Intern(name, id, email, school);
+  const intern = new Intern(capitalise(name), id, email, school);
   teamMembers.push(intern);
 }
 
@@ -30,6 +35,7 @@ const handleAnswer =  (answer, role) => {
   if (role === 'engineer') parseEngineer(answer);
   if (role === 'intern') parseIntern(answer);
 };
+
 // handle when the user finishes adding all their team members
 const handleFinish = () => {
   console.log(`
@@ -38,6 +44,7 @@ const handleFinish = () => {
   const content = generateContent(teamMembers);
   writeToFile('./dist/index.html', content); // file path relative to the file that is calling it
 };
+
 
 module.exports = {
   handleAnswer, handleFinish
