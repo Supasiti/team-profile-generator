@@ -7,7 +7,7 @@ const roleOtherInfos = {
 `<li class="list-group-item">Office Number: <span>${manager.officeNumber}</span></li>`,
   engineer: (engineer) => 
 `<li class="list-group-item">
-  GitHub: <span><a href="https://www.github.com/${engineer.getGithub()}">supasiti</a></span>
+  GitHub: <span><a href="https://www.github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></span>
 </li>`,
   intern: (intern) => 
 `<li class="list-group-item">School: <span>${intern.getSchool()}</span></li>`
