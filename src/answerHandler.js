@@ -1,6 +1,10 @@
 const Manager = require('../lib/manager');
 const Engineer = require('../lib/engineer');
 const Intern = require('../lib/intern');
+const { writeToFile } = require('./fileWriter');
+const generateContent = require('./htmlGenerator');
+ 
+
 
 const teamMembers = [];
 
@@ -30,7 +34,10 @@ const handleAnswer =  (answer, role) => {
 
 const handleFinish = () => {
   console.log('Generating the web page!');
-  console.log(teamMembers);
+  // console.log(teamMembers);
+
+  const content = generateContent(teamMembers);
+  writeToFile('../dist/index.html', content);
 };
 
 module.exports = {

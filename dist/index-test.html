@@ -1,11 +1,4 @@
-const generateCard = require('./cardGenerator');
-
-const generateCards = (employees) => {
-  return employees.map((employee) => generateCard(employee)).join('');
-};
-
-const generateContent = (employees) => {
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -35,7 +28,39 @@ const generateContent = (employees) => {
     <section class="py-5">
       <div class="container">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-          ${generateCards(employees)}
+
+          <!-- card -->
+          <div class="col">
+            <div class="card shadow-lg bg-light bg-gradient">
+              
+              <div class="card-header bg-primary text-center text-light">
+                <h3 class="card-title my-4">NAME</h3>
+                <h4 class="card-subtitle mb-2">Role</h4>
+              </div>
+              
+              <div class="card-body mx-2 my-3">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    ID: <span>1</span>
+                  </li>
+                  <li class="list-group-item">
+                    Email: <span><a href="mailto:jared@fakemail.com">jared@fakemail.com</a></span>
+                  </li>
+                  <li class="list-group-item">
+                    Office Number: <span>1</span>
+                  </li>
+                  <li class="list-group-item">
+                    GitHub: <span><a href="https://www.github.com/supasiti">supasiti</a></span>
+                  </li>
+                  <li class="list-group-item">
+                    School: <span>University</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
     </section>
@@ -47,7 +72,4 @@ const generateContent = (employees) => {
       crossorigin="anonymous">
     </script>
   </body>
-</html>`
-}
-
-module.exports = generateContent;
+</html>
