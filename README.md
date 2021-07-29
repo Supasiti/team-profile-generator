@@ -69,6 +69,8 @@ Once the framework is downloaded, To test, run
 
     npm run test
 
+Follow a video instruction [here](https://youtu.be/6sOVvqOrAGA);
+
 
 ## <h2 id="license"> License </h2>
 [(Back to top)](#table-of-content)
