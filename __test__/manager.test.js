@@ -35,6 +35,7 @@ describe('Manager', () => {
       expect(manager.email).toEqual(expected); 
       expect(manager.officeNumber).toEqual(expected); 
       expect(mock).toHaveBeenLastCalledWith('officeNumber must be a number');
+      mock.mockRestore();
     });
 
     it ('should log an error when data is missing', 
@@ -53,6 +54,7 @@ describe('Manager', () => {
       expect(manager.email).toEqual(expected); 
       expect(manager.officeNumber).toEqual(expected); 
       expect(mock).toHaveBeenLastCalledWith('some inputs are missing');
+      mock.mockRestore();
     });
   });
 
