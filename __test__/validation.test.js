@@ -12,6 +12,7 @@ describe('validateType', () => {
 
       expect(mock).toBeCalledWith('hello must be of type string')
       expect(result).toEqual(false);
+      mock.mockRestore();
     });
 
     it ('should return true if the type of an object is correct', () => {
@@ -31,6 +32,7 @@ describe('validateType', () => {
 
       expect(mock).toBeCalledWith('hello must be a number')
       expect(result).toEqual(false);
+      mock.mockRestore();
     });
 
     it ('should return true it is a number', () => {
@@ -50,6 +52,7 @@ describe('validateType', () => {
 
       expect(mock).toBeCalledWith('hello must be of type email')
       expect(result).toEqual(false);
+      mock.mockRestore();
     });
 
     it ('should return true it is an email', () => {
@@ -70,6 +73,7 @@ describe('validateType', () => {
 
       expect(mock).toBeCalledWith('hello must be a phone number')
       expect(result).toEqual(false);
+      mock.mockRestore();
     });
 
     it ('should return true it is a phone number', () => {

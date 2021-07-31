@@ -36,6 +36,7 @@ describe('Intern', () => {
       expect(intern.email).toEqual(expected); 
       expect(intern.school).toEqual(expected); 
       expect(mock).toHaveBeenLastCalledWith('school must be of type string');
+      mock.mockRestore();
     });
 
     it ('should log an error when data is missing', 
@@ -54,6 +55,7 @@ describe('Intern', () => {
       expect(intern.email).toEqual(expected); 
       expect(intern.school).toEqual(expected); 
       expect(mock).toHaveBeenLastCalledWith('some inputs are missing');
+      mock.mockRestore();
     });
   });
 

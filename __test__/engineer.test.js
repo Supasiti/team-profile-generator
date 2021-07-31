@@ -36,6 +36,7 @@ describe('Engineer', () => {
       expect(engineer.email).toEqual(expected); 
       expect(engineer.github).toEqual(expected); 
       expect(mock).toHaveBeenLastCalledWith('github must be of type string');
+      mock.mockRestore();
     });
 
     it ('should log an error when data is missing', 
@@ -54,6 +55,7 @@ describe('Engineer', () => {
       expect(engineer.email).toEqual(expected); 
       expect(engineer.github).toEqual(expected); 
       expect(mock).toHaveBeenLastCalledWith('some inputs are missing');
+      mock.mockRestore();
     });
   });
 

@@ -32,6 +32,7 @@ describe('Employee', () =>{
       expect(employee.id).toEqual(expected); 
       expect(employee.email).toEqual(expected); 
       expect(mock).toHaveBeenLastCalledWith('email must be of type email');
+      mock.mockRestore();
     });
 
     it ('should log an error when data is missing', 
@@ -49,6 +50,7 @@ describe('Employee', () =>{
       expect(employee.id).toEqual(expected); 
       expect(employee.email).toEqual(expected); 
       expect(mock).toHaveBeenLastCalledWith('some inputs are missing');
+      mock.mockRestore();
     });
   });
 
